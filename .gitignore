@@ -52,6 +52,7 @@ webtalk_impact.xml
 
 # Core Generator generated files
 xaw2verilog.log
+ipcore_dir/tmp/
 
 # project-wide generated files
 *.gise
