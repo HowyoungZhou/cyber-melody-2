@@ -19,17 +19,23 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module pitch_generator(
-    input [3:0] note,
-    input [3:0] octave,
     input clk,
-    output wave
+    input we,
+    input [7:0] data,
+    output wire wave
     );
+
+    reg [3:0] note = 0, octave = 0;
 
     wire [7:0] period_addr = (note - 1) * 10 + octave;
     wire [31:0] period;
     wire en;
 
     assign en = note != 0;
+
+    always @(we) begin
+        if(we) {note, octave} <= data;
+    end
 
     // just feed the period in the ROM to the wave generator
     pitch_period_table_rom pitch_period_table_rom (

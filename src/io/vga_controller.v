@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module vga_controller (vga_clk,clrn,d_in,row_addr,col_addr,rdn,r,g,b,hs,vs); // vgac
-   input     [11:0] d_in;     // bbbb_gggg_rrrr, pixel
+   input     [11:0] d_in;     // rrrr_gggg_bbbb, pixel
    input            vga_clk;  // 25MHz
    input            clrn;
    output reg [8:0] row_addr; // pixel ram row address, 480 (512) lines
@@ -67,8 +67,8 @@ module vga_controller (vga_clk,clrn,d_in,row_addr,col_addr,rdn,r,g,b,hs,vs); // 
         rdn      <= ~read;     // read pixel (active low)
         hs       <=  h_sync;   // horizontal synchronization
         vs       <=  v_sync;   // vertical   synchronization
-        r        <=  rdn ? 4'h0 : d_in[3:0]; // 3-bit red
+        b        <=  rdn ? 4'h0 : d_in[3:0]; // 3-bit blue
         g        <=  rdn ? 4'h0 : d_in[7:4]; // 3-bit green
-        b        <=  rdn ? 4'h0 : d_in[11:8]; // 2-bit blue
+        r        <=  rdn ? 4'h0 : d_in[11:8]; // 2-bit red
     end
 endmodule

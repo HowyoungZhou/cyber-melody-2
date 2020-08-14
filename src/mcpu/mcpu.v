@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Multi_CPU(clk, 
+module mcpu(clk, 
                  Data_in, 
                  INT, 
                  MIO_ready, 

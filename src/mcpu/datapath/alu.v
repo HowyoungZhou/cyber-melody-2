@@ -26,20 +26,21 @@ module ALU(input [2:0] ALU_operation,
            output overflow
            );
 
-assign overflow = (ALU_operation == 2 || ALU_operation == 6) && adc_res[32] ^ adc_res[31];
-assign zero = res == 0;
+    wire [32:0] adc_res = A + B + ALU_operation[2];
+    assign overflow = (ALU_operation == 2 || ALU_operation == 6) && adc_res[32] ^ adc_res[31];
+    assign zero = res == 0;
 
-always @* begin
-    case (ALU_operation)
-    0: res <= A & B;
-    1: res <= A | B;
-    2: res <= A + B + ALU_operation[2];
-    3: res <= A ^ B;
-    4: res <= ~(A | B);
-    5: res <= B >> 1;
-    6: res <= A + B + ALU_operation[2];
-    7: res <= {31'b0,adc_res[32]};
-    endcase
-end
+    always @* begin
+        case (ALU_operation)
+        0: res <= A & B;
+        1: res <= A | B;
+        2: res <= adc_res[31:0];
+        3: res <= A ^ B;
+        4: res <= ~(A | B);
+        5: res <= B >> 1;
+        6: res <= adc_res[31:0];
+        7: res <= {31'b0,adc_res[32]};
+        endcase
+    end
 
 endmodule
