@@ -34,13 +34,13 @@ module graphics_processor(
     parameter fill = 1'b0;
     parameter draw = 1'b1;
 
-    reg en;
-    reg opcode;
-    reg [9:0] tl_x;
-    reg [8:0] tl_y;
-    reg [9:0] br_x;
-    reg [8:0] br_y;
-    reg [11:0] arg;
+    reg en = 0;
+    reg opcode = 0;
+    reg [9:0] tl_x = 0;
+    reg [8:0] tl_y = 0;
+    reg [9:0] br_x = 0;
+    reg [8:0] br_y = 0;
+    reg [11:0] arg = 0;
 
     reg [9:0] cur_x;
     reg [8:0] cur_y;

@@ -34,12 +34,12 @@ module ALU(input [2:0] ALU_operation,
         case (ALU_operation)
         0: res <= A & B;
         1: res <= A | B;
-        2: res <= adc_res[31:0];
+        2: res <= A + B;
         3: res <= A ^ B;
         4: res <= ~(A | B);
         5: res <= B >> 1;
-        6: res <= adc_res[31:0];
-        7: res <= {31'b0,adc_res[32]};
+        6: res <= A - B;
+        7: res <= A < B;
         endcase
     end
 

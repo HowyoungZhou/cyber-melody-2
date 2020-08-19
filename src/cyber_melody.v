@@ -138,6 +138,7 @@ module cyber_melody(
     anti_jitter #(4) switches_anti_jitter [15:0](.clk(div[15]), .I(raw_switches), .O(switches));
 
     // 7-segment device
+    wire [31:0] inst, pc;
     wire [31:0] gpio_out, gpio_data, seven_seg_data;
     wire gpio_we;
     wire [3:0] seg_out;
@@ -159,7 +160,8 @@ module cyber_melody(
         .clkIO(div[3]), 
         .clkScan(div[15:14]), 
         .clkBlink(div[25]), 
-        .data(seven_seg_data), 
+        // .data(seven_seg_data), 
+        .data(pc), 
         .point(8'h0),
         .LES(8'h0),
         .sout(seg_out), 
@@ -169,8 +171,16 @@ module cyber_melody(
 
     // RAM
     wire [31:0] ram_in, ram_out;
-    wire [9:0] ram_addr;
+    wire [13:0] ram_addr;
     wire ram_we;
+
+    ram ram (
+        .clka(clk), // input clka
+        .wea(ram_we), // input [0 : 0] wea
+        .addra(ram_addr), // input [13 : 0] addra
+        .dina(ram_out), // input [31 : 0] dina
+        .douta(ram_in) // output [31 : 0] douta
+        );
 
     // counter
     wire [31:0] counter_in;
@@ -180,7 +190,7 @@ module cyber_melody(
     wire [31:0] cpu_out, cpu_in, addr;
 
     mcpu cpu (
-        .clk(clk), 
+        .clk(switches[15] ? div[25] : div[1]), 
         .Data_in(cpu_in), 
         .INT(), 
         .MIO_ready(1'b1), 
@@ -188,9 +198,9 @@ module cyber_melody(
         .Addr_out(addr), 
         .CPU_MIO(), 
         .Data_out(cpu_out), 
-        .inst_out(), 
+        .inst_out(inst), 
         .mem_w(mem_w), 
-        .PC_out(), 
+        .PC_out(pc), 
         .state()
         );
 

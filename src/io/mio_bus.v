@@ -14,7 +14,7 @@ module mio_bus(
     output reg [31:0] ram_out,
     // output reg [31:0] vram_out,
     output reg [31:0] pitch_gen_out,
-    output reg [9: 0] ram_addr,
+    output reg [13:0] ram_addr,
     // output reg [17:0] vram_addr,
     output reg [31:0] gpio_out,
     output reg [31:0] gp_ctrl_out,
@@ -32,10 +32,18 @@ module mio_bus(
     );
 
     always @(*) begin
+        gp_arg_we = 0;
+        gp_br_we = 0;
+        gp_ctrl_we = 0;
+        gp_tl_we = 0;
+        gpio_we = 0;
+        pitch_gen_we = 0;
+        ram_we = 0;
+        
         case(addr[31:28])
             4'h0: begin // RAM I/O 00000000 - 00000ffc
                 ram_we = mem_w;
-                ram_addr = addr[11:2];
+                ram_addr = addr[15:2];
                 ram_out = cpu_out;
                 cpu_in = ram_in;
             end
