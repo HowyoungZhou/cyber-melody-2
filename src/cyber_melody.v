@@ -49,27 +49,27 @@ module cyber_melody(
     // VGA
     parameter width = 640, height = 480;
 
-    wire [31:0] vram_out, vram_scan;
+    wire [11:0] vram_write_data, vram_scan_data;
     wire [8:0] row_addr;
     wire [9:0] col_addr;
-    wire [17:0] vram_scan_addr = (row_addr * width + col_addr) / 2;
-    wire [17:0] vram_out_addr;
+    wire [18:0] vram_scan_addr = row_addr * width + col_addr;
+    wire [18:0] vram_write_addr;
     wire vram_we;
 
     vram vram (
         .clka(clk), // input clka
         .wea(vram_we), // input [0 : 0] wea
-        .addra(vram_out_addr), // input [17 : 0] addra
-        .dina(vram_out), // input [31 : 0] dina
+        .addra(vram_write_addr), // input [18 : 0] addra
+        .dina(vram_write_data), // input [11 : 0] dina
         .clkb(clk), // input clkb
-        .addrb(vram_scan_addr), // input [17 : 0] addrb
-        .doutb(vram_scan) // output [31 : 0] doutb
+        .addrb(vram_scan_addr), // input [18 : 0] addrb
+        .doutb(vram_scan_data) // output [11 : 0] doutb
         );
     
     vga_controller vga (
         .vga_clk(div[1]), 
         .clrn(rst_n), 
-        .d_in(vram_scan_addr % 2 ? vram_scan[11:0] : vram_scan[27:16]), 
+        .d_in(vram_scan_data), 
         .row_addr(row_addr), 
         .col_addr(col_addr), 
         .rdn(), 
@@ -78,6 +78,35 @@ module cyber_melody(
         .b(vga_b), 
         .hs(vga_hs), 
         .vs(vga_vs)
+        );
+
+    // graphics processor
+    wire [31:0] gp_ctrl, gp_tl, gp_br, gp_arg;
+    wire gp_ctrl_we, gp_tl_we, gp_br_we, gp_arg_we, gp_finish;
+    wire [11:0] rom_addr, rom_data;
+
+    rom rom (
+        .clka(clk), // input clka
+        .addra({4'b0, rom_addr}), // input [15 : 0] addra
+        .douta(rom_data) // output [11 : 0] douta
+        );
+
+    graphics_processor gp (
+        .clk(clk), 
+        .ctrl_in(gp_ctrl), 
+        .tl_in(gp_tl), 
+        .br_in(gp_br), 
+        .arg_in(gp_arg), 
+        .ctrl_we(gp_ctrl_we), 
+        .tl_we(gp_tl_we), 
+        .br_we(gp_br_we), 
+        .arg_we(gp_arg_we), 
+        .rom_data(rom_data), 
+        .vram_we(vram_we), 
+        .vram_addr(vram_write_addr), 
+        .vram_data(vram_write_data), 
+        .rom_addr(rom_addr), 
+        .finish(gp_finish)
         );
 
     // PS/2
@@ -133,6 +162,7 @@ module cyber_melody(
         .data(seven_seg_data), 
         .point(8'h0),
         .LES(8'h0),
+        .sout(seg_out), 
         .segment(), 
         .anode()
         );
@@ -173,17 +203,23 @@ module cyber_melody(
         .addr(addr), 
         .ram_in(ram_in), 
         .counter_in(counter_in), 
+        .gp_finish(gp_finish), 
         .cpu_in(cpu_in), 
         .ram_out(ram_out), 
-        .vram_out(vram_out), 
         .pitch_gen_out(pitch_gen_data), 
         .ram_addr(ram_addr), 
-        .vram_addr(vram_out_addr), 
         .gpio_out(gpio_out), 
+        .gp_ctrl_out(gp_ctrl), 
+        .gp_tl_out(gp_tl), 
+        .gp_br_out(gp_br), 
+        .gp_arg_out(gp_arg), 
         .ram_we(ram_we), 
-        .vram_we(vram_we), 
         .pitch_gen_we(pitch_gen_we), 
-        .gpio_we(gpio_we)
+        .gpio_we(gpio_we), 
+        .gp_ctrl_we(gp_ctrl_we), 
+        .gp_tl_we(gp_tl_we), 
+        .gp_br_we(gp_br_we), 
+        .gp_arg_we(gp_arg_we)
         );
 
 endmodule
