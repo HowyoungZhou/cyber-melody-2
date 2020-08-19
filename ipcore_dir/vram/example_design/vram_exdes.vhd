@@ -91,16 +91,16 @@ ENTITY vram_exdes IS
       --Inputs - Port A
   
     WEA            : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA          : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
+    ADDRA          : IN STD_LOGIC_VECTOR(18 DOWNTO 0);
   
-    DINA           : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    DINA           : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
   
     CLKA       : IN STD_LOGIC;
 
   
       --Inputs - Port B
-    ADDRB          : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
-    DOUTB          : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    ADDRB          : IN STD_LOGIC_VECTOR(18 DOWNTO 0);
+    DOUTB          : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
     CLKB           : IN STD_LOGIC
 
   );
@@ -122,17 +122,17 @@ ARCHITECTURE xilinx OF vram_exdes IS
       --Port A
   
     WEA        : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA      : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
+    ADDRA      : IN STD_LOGIC_VECTOR(18 DOWNTO 0);
   
-    DINA       : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    DINA       : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
 
   
     CLKA       : IN STD_LOGIC;
 
   
       --Port B
-    ADDRB      : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
-    DOUTB      : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    ADDRB      : IN STD_LOGIC_VECTOR(18 DOWNTO 0);
+    DOUTB      : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
     CLKB       : IN STD_LOGIC
 
 
