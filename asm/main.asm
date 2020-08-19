@@ -1,3 +1,15 @@
+.text 0x0000
+splash:
+lw $t0, 0xd0000000
+andi $t0, $t0, 0x80000000
+beq $t0, $zero, splash
+
+li $a0, 3
+li $a1, 0x0008019c
+li $a2, 0x027701df
+li $a3, 0
+jal draw
+
 li $s0, 4                   # cur_octave
 li $s1, 0                   # last_key_ready
 li $s2, 0                   # last_key_code
@@ -35,6 +47,15 @@ move $s2, $t2
 sw $t3, 0x20000000
 j main_loop
 
+draw:
+sw $a1, 0xc0000001
+sw $a2, 0xc0000002
+sw $a3, 0xc0000003
+sw $a0, 0xc0000000
+wait_gp:
+lw $t0, 0xc0000004
+beq $t0, $zero, wait_gp
+jr $at
 
 .data 0x2000
 keycode_note_lut:
