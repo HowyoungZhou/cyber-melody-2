@@ -1,7 +1,5 @@
 import re
-import sys
 import math
-from coe_writer import write_coe
 
 num_notes_map = {
     "0": -1,
@@ -39,8 +37,8 @@ notes = ['Rest', 'C', 'C#', 'D', 'D#', 'E',
          'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', '(invalid)', '(invalid)', '(EOF)']
 
 
-def lenoc_generator():
-    with open(sys.argv[1]) as f:
+def parse_lenoc(path):
+    with open(path) as f:
         base_num, key_note, key_octave = re.match(
             r'(#?[0-7])\s*=\s*([A-G]#?)([0-9])', f.readline()).groups()
         _, beats = re.match(r'([0-9]*)\s*\/\s*([0-9]+)', f.readline()).groups()
@@ -96,7 +94,3 @@ def parse_note(item: str, base_num: int, base_note: int):
     octave = note_code // 12
     note = note_code % 12
     return (length, note + 1, octave)
-
-
-if __name__ == "__main__":
-    write_coe(sys.argv[2], 16, lenoc_generator())

@@ -84,3 +84,5 @@ jr $ra
 .data 0x2000
 keycode_note_lut:
 .include "keycode_note_lut.asm"
+scores:
+.include "scores.asm"
