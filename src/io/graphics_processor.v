@@ -14,7 +14,7 @@ module graphics_processor(
     output vram_we, // VRAM write enable
     output reg [18:0] vram_addr, // VRAM address
     output [11:0] vram_data, // VRAM data
-    output reg [11:0] rom_addr,
+    output reg [15:0] rom_addr,
     output finish
     );
 
@@ -69,7 +69,7 @@ module graphics_processor(
                         state <= fill_set_addr;
                     end
                     else begin
-                        rom_addr <= arg;
+                        rom_addr <= {4'b0, arg};
                         state <= draw_set_addr;
                     end
                 end

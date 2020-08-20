@@ -50,7 +50,7 @@ module mio_bus(
                 ram_out = cpu_out;
                 cpu_in = ram_in;
             end
-            4'h1: begin // timer I/O 10000000 - 1fffffff
+            4'h3: begin // timer I/O 10000000 - 1fffffff
                 cpu_in = timer_in;
                 timer_out = cpu_out;
                 timer_we = mem_w;

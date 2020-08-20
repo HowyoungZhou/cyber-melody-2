@@ -83,11 +83,12 @@ module cyber_melody(
     // graphics processor
     wire [31:0] gp_ctrl, gp_tl, gp_br, gp_arg;
     wire gp_ctrl_we, gp_tl_we, gp_br_we, gp_arg_we, gp_finish;
-    wire [11:0] rom_addr, rom_data;
+    wire [11:0] rom_data;
+    wire [15:0] rom_addr;
 
     rom rom (
         .clka(clk), // input clka
-        .addra({4'b0, rom_addr}), // input [15 : 0] addra
+        .addra(rom_addr), // input [15 : 0] addra
         .douta(rom_data) // output [11 : 0] douta
         );
 
@@ -199,7 +200,7 @@ module cyber_melody(
     wire [31:0] cpu_out, cpu_in, addr;
 
     mcpu cpu (
-        .clk(switches[15] ? div[25] : div[1]), 
+        .clk(div[1]), 
         .Data_in(cpu_in), 
         .INT(), 
         .MIO_ready(1'b1), 
