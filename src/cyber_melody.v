@@ -182,8 +182,17 @@ module cyber_melody(
         .douta(ram_in) // output [31 : 0] douta
         );
 
-    // counter
-    wire [31:0] counter_in;
+    // timer
+    wire [31:0] timer_in, timer_out;
+    wire timer_we;
+
+    timer timer (
+        .clk(clk_1ms), 
+        .data_in(timer_out), 
+        .we(timer_we), 
+        .data_out(timer_in), 
+        .zero()
+        );
 
     // CPU
     wire mem_w;
@@ -212,7 +221,7 @@ module cyber_melody(
         .cpu_out(cpu_out), 
         .addr(addr), 
         .ram_in(ram_in), 
-        .counter_in(counter_in), 
+        .timer_in(timer_in), 
         .gp_finish(gp_finish), 
         .cpu_in(cpu_in), 
         .ram_out(ram_out), 
@@ -223,13 +232,15 @@ module cyber_melody(
         .gp_tl_out(gp_tl), 
         .gp_br_out(gp_br), 
         .gp_arg_out(gp_arg), 
+        .timer_out(timer_out), 
         .ram_we(ram_we), 
         .pitch_gen_we(pitch_gen_we), 
         .gpio_we(gpio_we), 
         .gp_ctrl_we(gp_ctrl_we), 
         .gp_tl_we(gp_tl_we), 
         .gp_br_we(gp_br_we), 
-        .gp_arg_we(gp_arg_we)
+        .gp_arg_we(gp_arg_we),
+        .timer_we(timer_we)
         );
 
 endmodule

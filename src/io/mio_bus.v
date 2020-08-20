@@ -7,7 +7,7 @@ module mio_bus(
     input wire [31:0] addr,
     input wire [31:0] ram_in,
     // input wire [31:0] vram_in,
-    input wire [31:0] counter_in,
+    input wire [31:0] timer_in,
     // input wire [31:0] pitch_gen_in,
     input gp_finish,
     output reg [31:0] cpu_in,
@@ -21,6 +21,7 @@ module mio_bus(
     output reg [31:0] gp_tl_out,
     output reg [31:0] gp_br_out,
     output reg [31:0] gp_arg_out,
+    output reg [31:0] timer_out,
     output reg ram_we,
     // output reg vram_we,
     output reg pitch_gen_we,
@@ -28,7 +29,8 @@ module mio_bus(
     output reg gp_ctrl_we,
     output reg gp_tl_we,
     output reg gp_br_we,
-    output reg gp_arg_we
+    output reg gp_arg_we,
+    output reg timer_we
     );
 
     always @(*) begin
@@ -39,7 +41,8 @@ module mio_bus(
         gpio_we = 0;
         pitch_gen_we = 0;
         ram_we = 0;
-        
+        timer_we = 0;
+
         case(addr[31:28])
             4'h0: begin // RAM I/O 00000000 - 00000ffc
                 ram_we = mem_w;
@@ -47,8 +50,10 @@ module mio_bus(
                 ram_out = cpu_out;
                 cpu_in = ram_in;
             end
-            4'h1: begin // counter read only 10000000 - 1fffffff
-                cpu_in = counter_in;
+            4'h1: begin // timer I/O 10000000 - 1fffffff
+                cpu_in = timer_in;
+                timer_out = cpu_out;
+                timer_we = mem_w;
             end
             4'h2: begin // pitch generator write only 20000000-2fffffff
                 pitch_gen_we = mem_w;
