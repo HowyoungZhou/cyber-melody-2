@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module ALU(input [2:0] ALU_operation,
+module ALU(input [3:0] ALU_operation,
            input [31:0] A,
            input [31:0] B,
            output reg [31:0] res,
@@ -37,9 +37,10 @@ module ALU(input [2:0] ALU_operation,
         2: res <= A + B;
         3: res <= A ^ B;
         4: res <= ~(A | B);
-        5: res <= B >> 1;
+        5: res <= B >> A;
         6: res <= A - B;
         7: res <= A < B;
+        8: res <= B << A;
         endcase
     end
 

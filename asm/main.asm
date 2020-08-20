@@ -4,6 +4,14 @@ lw $t0, 0xd0000000
 andi $t0, $t0, 0x80000000
 beq $t0, $zero, splash
 
+addi $a0, $zero, 2
+# li $a1, 0
+addi $a1, $zero, 0
+li $a2, 0x027f01df
+# li $a3, 0xfff
+addi $a3, $zero, 0xfff
+jal draw
+
 # li $a0, 3
 addi $a0, $zero, 3
 li $a1, 0x0008019c
@@ -29,7 +37,9 @@ andi $t2, $t0, 0xff         # key_code
 addi $t3, $zero, 0
 
 beq $t1, $zero, L1
-sll $t3, $t2, 2
+# sll $t3, $t2, 2
+addi $at, $zero, 2
+sllv $t3, $t2, $at
 lw $t3, keycode_note_lut($t3)
 add $t3, $t3, $s0
 j L3

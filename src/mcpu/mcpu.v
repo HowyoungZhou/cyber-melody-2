@@ -44,7 +44,7 @@ module mcpu(clk,
     output [31:0] PC_out;
     output [4:0] state;
     
-    wire [2:0] ALU_op;
+    wire [3:0] ALU_op;
     wire [1:0] PCSource;
     wire [1:0] ALUSrcB;
     wire [1:0] MemtoReg;
@@ -65,7 +65,7 @@ module mcpu(clk,
     
     M_datapath  U1_2 (.ALUSrcA(ALUSrcA), 
                         .ALUSrcB(ALUSrcB[1:0]), 
-                        .ALU_operation(ALU_op[2:0]), 
+                        .ALU_operation(ALU_op[3:0]), 
                         .Branch(Branch), 
                         .clk(clk), 
                         .data2CPU(Data_in[31:0]), 
@@ -94,7 +94,7 @@ module mcpu(clk,
                 .zero(zero), 
                 .ALUSrcA(ALUSrcA), 
                 .ALUSrcB(ALUSrcB[1:0]), 
-                .ALU_operation(ALU_op[2:0]), 
+                .ALU_operation(ALU_op[3:0]), 
                 .Branch(Branch), 
                 .CPU_MIO(CPU_MIO), 
                 .IorD(IorD), 

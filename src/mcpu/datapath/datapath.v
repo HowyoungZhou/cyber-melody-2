@@ -32,7 +32,7 @@ module M_datapath(input clk,
                   input PCWrite,
                   input PCWriteCond,
                   input Branch,
-                  input[2:0]ALU_operation,
+                  input[3:0]ALU_operation,
                   input[31:0]data2CPU,
 
                   output[31:0]PC_Current,

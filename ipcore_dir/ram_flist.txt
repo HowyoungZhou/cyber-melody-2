@@ -4,6 +4,7 @@ ram.asy
 ram.gise
 ram.mif
 ram.ngc
+ram.sym
 ram.v
 ram.veo
 ram.xco

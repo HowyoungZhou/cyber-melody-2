@@ -27,7 +27,7 @@ module ctrl(input  clk,
 				
 				output reg MemRead,
 				output reg MemWrite,
-				output reg[2:0]ALU_operation,
+				output reg[3:0]ALU_operation,
 				output [4:0]state_out,
 				output reg CPU_MIO,
 				output reg IorD,
@@ -64,7 +64,7 @@ module ctrl(input  clk,
               value13= 20'b01000000010010000010,
               value14= 20'b10000000000010000000,
               value15= 20'b10000011101101100000;
-	parameter AND=3'b000, OR=3'b001, ADD=3'b010, SUB=3'b110, NOR=3'b100, SLT=3'b111, XOR=3'b011, SRL=3'b101;
+	parameter AND=4'b0000, OR=4'b0001, ADD=4'b0010, SUB=4'b0110, NOR=4'b0100, SLT=4'b0111, XOR=4'b0011, SRL=4'b0101, SLL=4'b1000;
 	parameter LW = 6'b100011, SW = 6'b101011, R = 0, BEQ = 6'b000100, JUMP = 6'b000010,
               ADDI = 6'b001000, ANDI = 6'b001100, ORI = 6'b001101, XORI = 6'b001110,
               SLTI = 6'b001010, LUI = 6'b001111, BNE = 6'b000101, JAL = 6'b000011;
@@ -90,8 +90,9 @@ module ctrl(input  clk,
                 6'b100101: ALU_operation = OR;
                 6'b100111: ALU_operation = NOR;
                 6'b101010: ALU_operation = SLT;
-                6'b000010: ALU_operation = SRL;
                 6'b000000: ALU_operation = XOR;
+				6'b000110: ALU_operation = SRL;
+				6'b000100: ALU_operation = SLL;
                 default:   ALU_operation = ADD;
             endcase
             2'b11:
