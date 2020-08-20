@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="rom">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2020-8-19T6:54:3</timestamp>
+    <timestamp>2020-8-20T6:52:30</timestamp>
     <pin polarity="Input" x="0" y="80" name="addra[15:0]" />
     <pin polarity="Input" x="0" y="272" name="clka" />
     <pin polarity="Output" x="576" y="80" name="douta[11:0]" />
