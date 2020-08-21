@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="F:/Coding/cyber_melody_2/cyber_melody_core_sim_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="cyber_melody_core_sim" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="41" />
+   <wvobject fp_name="/cyber_melody_core_sim/vga_r" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_r[3:0]</obj_property>
+      <obj_property name="ObjectShortName">vga_r[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/vga_g" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_g[3:0]</obj_property>
+      <obj_property name="ObjectShortName">vga_g[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/vga_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_b[3:0]</obj_property>
+      <obj_property name="ObjectShortName">vga_b[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/vga_hs" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_hs</obj_property>
+      <obj_property name="ObjectShortName">vga_hs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/vga_vs" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_vs</obj_property>
+      <obj_property name="ObjectShortName">vga_vs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/buzzer" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">buzzer</obj_property>
+      <obj_property name="ObjectShortName">buzzer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/seg_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">seg_clk</obj_property>
+      <obj_property name="ObjectShortName">seg_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/seg_do" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">seg_do</obj_property>
+      <obj_property name="ObjectShortName">seg_do</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/seg_pen" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">seg_pen</obj_property>
+      <obj_property name="ObjectShortName">seg_pen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/seg_clr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">seg_clr</obj_property>
+      <obj_property name="ObjectShortName">seg_clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/rst_n" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/ps2_key_code" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ps2_key_code[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ps2_key_code[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/ps2_key_ready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ps2_key_ready</obj_property>
+      <obj_property name="ObjectShortName">ps2_key_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/raw_switches" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">raw_switches[15:0]</obj_property>
+      <obj_property name="ObjectShortName">raw_switches[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/Data_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Data_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Data_in[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/Addr_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Addr_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Addr_out[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/Data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Data_out[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/inst_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inst_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_out[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U11/state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state[4:0]</obj_property>
+      <obj_property name="ObjectShortName">state[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/PC_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PC_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_out[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">regs[31:1,31:0]</obj_property>
+      <obj_property name="ObjectShortName">regs[31:1,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[31]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[31,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[31,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">31 ra</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[30]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[30,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[30,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[29]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[29,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[29,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[28]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[28,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[28,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[27]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[27,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[27,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[26]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[26,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[26,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">[26,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[25]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[25,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[25,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">25 t9</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[24]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[24,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[24,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">24 t8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[23]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[23,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[23,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">23 s7</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[22]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[22,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[22,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">22 s6</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[21]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[21,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[21,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">21 s5</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[20]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[20,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[20,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">20 s4</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[19]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[19,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[19,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">19 s3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[18]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[18,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[18,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">18 s2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[17]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[17,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[17,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">17 s1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[16]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[16,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[16,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">16 s0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[15]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[15,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[15,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">15 t7</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[14]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[14,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[14,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">14 t6</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[13]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[13,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[13,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">13 t5</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[12]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[12,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[12,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">12 t4</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[11]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[11,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[11,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">11 t3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[10]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[10,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[10,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">10 t2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[9]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[9,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[9,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">09 t1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[8]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[8,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[8,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">08 t0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[7]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[7,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[7,31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="label">07 a3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[6]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[6,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[6,31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="label">06 a2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[5]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[5,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[5,31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="label">05 a1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[4]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[4,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[4,31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="label">04 a0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[3,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[2,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/cyber_melody_core_sim/uut/cpu/U1_2/U2/regs[1]" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[1,31:0]</obj_property>
+         <obj_property name="ObjectShortName">regs[1,31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">00 at</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/bus/addr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/bus/cpu_in" type="array" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">cpu_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cpu_in[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">cpu_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/bus/cpu_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cpu_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cpu_out[31:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/gp/tl_x" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">tl_x[9:0]</obj_property>
+      <obj_property name="ObjectShortName">tl_x[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/gp/tl_y" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">tl_y[8:0]</obj_property>
+      <obj_property name="ObjectShortName">tl_y[8:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/gp/br_x" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">br_x[9:0]</obj_property>
+      <obj_property name="ObjectShortName">br_x[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/gp/br_y" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">br_y[8:0]</obj_property>
+      <obj_property name="ObjectShortName">br_y[8:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/gp/arg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">arg[11:0]</obj_property>
+      <obj_property name="ObjectShortName">arg[11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/gp/en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/gp/finish" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">finish</obj_property>
+      <obj_property name="ObjectShortName">finish</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/gp/ctrl_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ctrl_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ctrl_in[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/gp/tl_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">tl_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">tl_in[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/gp/br_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">br_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">br_in[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/gp/arg_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">arg_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">arg_in[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/pitch_gen/octave" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">octave[3:0]</obj_property>
+      <obj_property name="ObjectShortName">octave[3:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/pitch_gen/note" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">note[3:0]</obj_property>
+      <obj_property name="ObjectShortName">note[3:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/timer/data_out" type="array" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">timer_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/timer/data_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cyber_melody_core_sim/uut/timer/we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">we</obj_property>
+      <obj_property name="ObjectShortName">we</obj_property>
+   </wvobject>
+</wave_config>

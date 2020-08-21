@@ -1,31 +1,9 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    15:18:59 08/13/2020 
-// Design Name: 
-// Module Name:    cyber_melody 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
-module cyber_melody(
+module cyber_melody_core(
     input clk,
     input rst_n,
-    // inout [3:0] btn_y,
-    // inout [4:0] btn_x,
+    input [7:0] ps2_key_code,
+    input ps2_key_ready,
     input [15:0] raw_switches,
-    input ps2_clk,
-    input ps2_data,
     output [3:0] vga_r,
     output [3:0] vga_g,
     output [3:0] vga_b,
@@ -111,16 +89,7 @@ module cyber_melody(
         );
 
     // PS/2
-    wire [7:0] ps2_key_code;
-    wire ps2_key_ready;
-
-    ps2_controller ps2 (
-        .clk(clk),
-        .ps2_clk(ps2_clk), 
-        .ps2_data(ps2_data), 
-        .keycode(ps2_key_code), 
-        .keypress(ps2_key_ready)
-        );
+    
 
     // pitch generator
     wire [7:0] pitch_gen_data;
@@ -139,7 +108,7 @@ module cyber_melody(
     anti_jitter #(4) switches_anti_jitter [15:0](.clk(div[15]), .I(raw_switches), .O(switches));
 
     // 7-segment device
-    wire [31:0] inst, pc;
+    wire [31:0] inst;
     wire [31:0] gpio_out, gpio_data, seven_seg_data;
     wire gpio_we;
     wire [3:0] seg_out;
@@ -162,7 +131,7 @@ module cyber_melody(
         .clkScan(div[15:14]), 
         .clkBlink(div[25]), 
         // .data(seven_seg_data), 
-        .data({7'b0, ps2_key_ready, ps2_key_code, pc[15:0]}), 
+        .data(inst), 
         .point(8'h0),
         .LES(8'h0),
         .sout(seg_out), 

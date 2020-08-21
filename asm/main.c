@@ -14,6 +14,8 @@ void draw_indicator(int note_octave, int y, int length)
     int x0 = indicator_x_lut[note_octave];       // s0
     if(x0 == 0) return;
     int y0 = y - length + 1;                     // s1
+    if(y0 < 0) y0 = 0;
+    // L9
     int x1 = x0 + 11;                            // s2
     int y1 = y;                                  // s3
     int color = colors[note_octave >> 4 && 0xf]; // s4

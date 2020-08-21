@@ -64,11 +64,11 @@ addi $s5, $zero, 411
 # int length = cur_length >> 2;                      // a2
 addi $at, $zero, 2
 srlv $a2, $t0, $at
-# cur_y -= length;
-sub $s5, $s5, $a2
 # draw_indicator(cur_lenoc, cur_y, length);
 add $a0, $zero, $s4
 add $a1, $zero, $s5
+# cur_y -= length;
+sub $s5, $s5, $a2
 jal draw_indicator
 
 # int note_cursor = note_pointer + 1; // s6
@@ -85,11 +85,11 @@ lw $t0, score($t0)
 # int length = (lenoc >> 8) >> 2;        // a2
 addi $at, $zero, 10
 srlv $a2, $t0, $at
-# cur_y -= length;
-sub $s5, $s5, $a2
 # draw_indicator(lenoc & 0xFF, cur_y, length);
 andi $a0, $t0, 0xff
 add $a1, $zero, $s5
+# cur_y -= length;
+sub $s5, $s5, $a2
 jal draw_indicator
 # note_cursor++;
 addi $s6, $s6, 1
@@ -168,6 +168,7 @@ sw $s1, s1_save
 sw $s2, s2_save
 sw $s3, s3_save
 sw $s4, s4_save
+sw $ra, ra_save
 # int x0 = indicator_x_lut[note_octave]; // s0
 addi $at, $zero, 2
 sllv $s0, $a0, $at
@@ -177,6 +178,10 @@ beq $s0, $zero, draw_indicator_ret
 # int y0 = y - length + 1;                   // s1
 sub $s1, $a1, $a2
 addi $s1, $s1, 1
+slt $t0, $s1, $zero
+beq $t0, $zero, L9
+addi $s1, $zero, 0
+L9:
 # int x1 = x0 + 11;                      // s2
 addi $s2, $s0, 11
 # int y1 = y;                            // s3
@@ -231,6 +236,7 @@ addi $a3, $zero, 0xfff
 jal draw
 
 draw_indicator_ret:
+lw $ra, ra_save
 lw $s4, s4_save
 lw $s3, s3_save
 lw $s2, s2_save
@@ -244,6 +250,7 @@ s1_save: .space 4
 s2_save: .space 4
 s3_save: .space 4
 s4_save: .space 4
+ra_save: .space 4
 
 .data 0x2000
 colors:

@@ -39,7 +39,7 @@ module ALU(input [3:0] ALU_operation,
         4: res <= ~(A | B);
         5: res <= B >> A;
         6: res <= A - B;
-        7: res <= A < B;
+        7: res <= $signed(A) < $signed(B);
         8: res <= B << A;
         endcase
     end
