@@ -59,8 +59,8 @@ addi $at, $zero, 2
 sllv $s4, $s3, $at
 lw $s4, score($s4)
 andi $s4, $s4, 0xff
-# int cur_y = 411;                                  // s5
-addi $s5, $zero, 411
+# int cur_y = 405;                                  // s5
+addi $s5, $zero, 405
 # int length = cur_length >> 2;                      // a2
 addi $at, $zero, 2
 srlv $a2, $t0, $at
@@ -97,6 +97,9 @@ addi $s6, $s6, 1
 j L5
 
 L6:
+# draw_octave_indicator(cur_octave);
+add $a0, $zero, $s0
+jal draw_octave_indicator
 # int pitch_gen_output = 0;        // t3
 addi $t3, $zero, 0
 # if (*(int *)0xf0000000 & 1 == 0) goto L7 // if (*(int *)0xf0000000 & 1 == 1) then // t4
@@ -244,6 +247,72 @@ lw $s1, s1_save
 lw $s0, s0_save
 jr $ra
 
+
+draw_octave_indicator:
+sw $s0, s0_save
+sw $s1, s1_save
+sw $a0, a0_save
+sw $ra, ra_save
+# if (octave != 0) goto L10; // if (octave == 0) then
+bne $a0, $zero, L10
+# draw_rect(0, 406, 639, 411, 0xfff);
+addi $a0, $zero, 2
+addi $a1, $zero, 0x196
+li $a2, 0x27f019b
+addi $a3, $zero, 0xfff
+jal draw
+# return;
+j draw_octave_indicator_ret
+L10:
+lw $a0, a0_save
+# int x0 = indicator_x_lut[0x10 | octave]; // s0
+ori $s0, $a0, 0x10
+addi $at, $zero, 2
+sllv $s0, $s0, $at
+lw $s0, indicator_x_lut($s0)
+# int x1 = x0 + 167; // s1
+addi $s1, $s0, 167
+# if (631 < x1) x1 = 631;
+addi $at, $zero, 631
+slt $t2, $at, $s1
+beq $t2, $zero, L11
+addi $s1, $zero, 631
+L11:
+# draw_rect(0, 406, x0 - 1, 411, 0xfff);
+addi $a0, $zero, 2
+addi $a1, $zero, 406
+addi $a2, $s0, -1
+addi $at, $zero, 16
+sllv $a2, $a2, $at
+ori $a2, $a2, 411
+addi $a3, $zero, 0xfff
+jal draw
+# draw_rect(x0, 406, x1, 411, 0x39e);
+addi $a0, $zero, 2
+addi $at, $zero, 16
+sllv $a1, $s0, $at
+sllv $a2, $s1, $at
+ori $a1, $a1, 406
+ori $a2, $a2, 411
+addi $a3, $zero, 0x39e
+jal draw
+# draw_rect(x1 + 1, 406, 639, 411, 0xfff);
+addi $a0, $zero, 2
+addi $a1, $s1, 1
+addi $at, $zero, 16
+sllv $a1, $a1, $at
+ori $a1, $a1, 406
+li $a2, 0x27f019b
+addi $a3, $zero, 0xfff
+jal draw
+draw_octave_indicator_ret:
+lw $ra, ra_save
+lw $a0, a0_save
+lw $s1, s1_save
+lw $s0, s0_save
+jr $ra
+
+
 .data 0x1000
 s0_save: .space 4
 s1_save: .space 4
@@ -251,9 +320,12 @@ s2_save: .space 4
 s3_save: .space 4
 s4_save: .space 4
 ra_save: .space 4
+a0_save: .space 4
+
 
 .data 0x2000
 colors:
+.word 0
 .word 0xF33, 0xF60, 0xF90, 0xFC0, 0xCC0, 0x7B3
 .word 0x6C6, 0x3CC, 0x39E, 0x30F, 0x30C, 0x609
 keycode_note_lut:

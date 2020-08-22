@@ -11,10 +11,12 @@ void draw_image(int x0, int y0, int x1, int y1, int address);
 
 void draw_indicator(int note_octave, int y, int length)
 {
-    int x0 = indicator_x_lut[note_octave];       // s0
-    if(x0 == 0) return;
-    int y0 = y - length + 1;                     // s1
-    if(y0 < 0) y0 = 0;
+    int x0 = indicator_x_lut[note_octave]; // s0
+    if (x0 == 0)
+        return;
+    int y0 = y - length + 1; // s1
+    if (y0 < 0)
+        y0 = 0;
     // L9
     int x1 = x0 + 11;                            // s2
     int y1 = y;                                  // s3
@@ -22,6 +24,23 @@ void draw_indicator(int note_octave, int y, int length)
     draw_rect(0, y0, x0 - 1, y1, 0xfff);
     draw_rect(x0, y0, x1, y1, color);
     draw_rect(x1 + 1, y0, 639, y1, 0xfff);
+}
+
+void draw_octave_indicator(int octave)
+{
+    if (octave == 0)
+    {
+        draw_rect(0, 406, 639, 411, 0xfff);
+        return;
+    }                                        // L10
+    int x0 = indicator_x_lut[0x10 | octave]; // s0
+    int x1 = x0 + 167;                       // s1
+    if (x1 > 631)
+        x1 = 631;
+    // L11
+    draw_rect(0, 406, x0 - 1, 411, 0xfff);
+    draw_rect(x0, 406, x1, 411, 0x39e);
+    draw_rect(x1 + 1, 406, 639, 411, 0xfff);
 }
 
 int main()
@@ -50,7 +69,7 @@ int main()
         } // L4
 
         int cur_lenoc = score[note_pointer] & 0xFF; // s4
-        int cur_y = 411;                            // s5
+        int cur_y = 405;                            // s5
         int length = cur_length / 4;                // a2
         draw_indicator(cur_lenoc, cur_y, length);
         cur_y -= length;
@@ -64,6 +83,7 @@ int main()
             cur_y -= length;
             note_cursor++;
         } // L6
+        draw_octave_indicator(cur_octave);
 
         int pitch_gen_output = 0;        // t3
         if (*(int *)0xf0000000 & 1 == 1) // t4
